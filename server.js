@@ -4,11 +4,11 @@ const bodyParser = require("body-parser")
 
 app.use(bodyParser.json())
 
-app.get('/', function(req, res){
-  res.send('queries: ' + JSON.stringify(req.query))
-  res.send('uri: ' + JSON.stringify(req.originalUrl))
-  res.send('headers:' + JSON.stringify(req.headers))
-  res.send('body:' + JSON.stringify(req.body))
+app.all('*', function(req, res){
+  res.send( 'queries: ' + JSON.stringify(req.query) + '\n' +
+            'uri: ' + JSON.stringify(req.originalUrl).split("?").shift() + '\n' +
+            'headers:' + JSON.stringify(req.headers) + '\n' +
+            'body:' + JSON.stringify(req.body)) 
 });
 
 app.listen(3000, function(){
