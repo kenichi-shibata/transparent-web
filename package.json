@@ -6,6 +6,9 @@
   "repository": "",
   "dependencies": {
     "body-parser": "^1.17.2",
-    "express": "^3.2.6"
-  }
+    "express": "^3.2.6",
+    "pm2": "^2.4.6"
+  },
+
+  "start": "pm2 server.js"
 }
